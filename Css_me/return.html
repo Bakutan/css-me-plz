@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Return</title>
+</head>
+<body>
+    <h1>คืนหนังสือ</h1>
+    <form action="{{url_for('Returntolist')}}">
+        <div>
+            <label for="bookname">ชื่อหนังสือ:</label>
+            <input type="text" id="bookname" name="bookname" placeholder="กรุณาพิมพ์ชื่อหนังสือ" required autofocus>
+        </div>
+        <div>
+            <label for="bookpas">รหัสหนังสือ:</label>
+            <input type="text" id="bookpas" name="bookpas" placeholder="กรุณาพิมพ์รหัสหนังสือ" required autofocus>
+        </div>
+        <div>
+            <button type="submit">ยืนยัน</button>
+            <button><a href="/" style="text-decoration:none;color: black;">กลับหน้าหลัก</a></button>
+        </div>
+    </form>
+    <form action="{{url_for('Comfirmreturn')}}">
+        <p>รายชื่อหนังสือที่จะคืน</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>ชื่อหนังสือ</th>
+                    <th>รหัสหนังสือ</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for data in lists%}
+                <tr>
+                    <td>{{data.0}}</td>
+                    <td>{{data.1}}</td>
+                    <td><button><a href="/delete/{{data.1}}">delete.</a></button></td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+        <button type="submit">ยืนยันการคืนหนังสือ</button>     
+    </form>
+    <form>
+        <p>รายชื่อหนังสือที่โดนยืมไปทั้งหมด</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>ชื่อหนังสือ</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for item in name%}
+                <tr>
+                    <td>{{item.0}}</td>
+                    <td>{{item.1}}</td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+    </form>
+</body>
+</html>

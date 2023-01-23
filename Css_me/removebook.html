@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove</title>
+</head>
+<body>
+    <fieldset>
+        <h3>ลบรายชื่อหนังสือออก</h3>
+        <br> 
+        <form action="R_delete">
+            <label for="AddName">ชื่อหนังสือ:</label>
+            <input type="text" name="AddName" id="AddName"  required autofocus>
+            <br>
+            <label for="AddTag">รหัสหนังสือ:</label>
+            <input type="text" id="AddTag" name="AddTag" required autofocus>
+            <br>
+            <form>
+                <button type="submit">Submit</button>
+                <button type="reset">Reset</button>
+        </form>
+        <h5>รายชื่อหนังสือทั้งหมด</h5>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ชื่อ</th>
+                    <th>รหัส</th>
+                    <th>สถานะ</th>
+                </tr>
+            </thead>
+            <tbody>
+                    {%for item in name%}
+                <tr>
+                    <td>{{item[0]}}</td>
+                    <td>{{item[1]}}</td>
+                    <td>{{item[2]}}</td>
+                </tr>
+                    {%endfor%}
+            </tbody>
+        </table>
+        </fieldset>
+    <form action="{{url_for('Bookdata')}}">
+        <br><button>กลับหน้าหลัก</button>
+    </form>
+</body>
+</html>

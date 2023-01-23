@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>homepage</title>
+</head>
+<body>
+    <!-- <img src="chonchai.jpg" alt="chonchailogo" width="300" height="400"> -->
+    <h1>ยินดีต้อนรับสู่ห้องสมุด</h1>
+    <form action="{{url_for('BorrowBook')}}">
+        <button>ยืมหนังสือ</button>
+    </form>
+    <form action="{{url_for('ReturnBook')}}">
+        <button>คืนหนังสือ</button>
+    </form>
+    <form action="{{url_for('ShowBookData')}}">
+        <button>ข้อมูลหนังสือ</button>
+    </form>
+    <!--รอทำรูปแบบLOGINเข้าก่อน ถึงจะดำเนินการต่อได้-->
+    <form action="{{url_for('BookData')}}">
+        <button>แก้ไขข้อมูลหนังสือ</button>
+    </form>
+</body>
+</html>

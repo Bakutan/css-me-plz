@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>history</title>
+</head>
+<body>
+    <a href="{{url_for('downloads')}}">Download all data here</a>
+        <div>
+            <h3>ดูรายการย้อนหลัง</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ชื่อหนังสือ</th>
+                        <th>เหตุการณ์ที่เกิดขึ้น</th>
+                        <th>วัน-เวลา</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for item in name%}
+                    <tr>
+                        <td>{{item.0}}</td>
+                        <td>{{item.1}}</td>
+                        <td>{{item.2}}</td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+            <button><a href="/BookData" style="text-decoration: none;color: black;">กลับหน้าหลัก</a></button>
+        </div>
+</body>
+</html>

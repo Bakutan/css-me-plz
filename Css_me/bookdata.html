@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bookdata</title>
+</head>
+<body>
+    <fieldset>
+        <h3>รายชื่อหนังสือทั้งหมด</h3>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ชื่อ</th>
+                    <th>รหัส</th>
+                    <th>สถานะ</th>
+                </tr>
+            </thead>
+            <tbody>
+                    {%for item in name%}
+                <tr>
+                    <td>{{item[0]}}</td>
+                    <td>{{item[1]}}</td>
+                    <td>{{item[2]}}</td>
+                </tr>
+                    {%endfor%}
+            </tbody>
+        </table>
+    </fieldset>
+    <h3>รายการ</h3>
+    <form action="{{url_for('Addbook')}}">
+        <button>เพิ่มหนังสือ </button>
+    </form>
+    <form action="{{url_for('Removebook')}}">
+        <button>ลบหนังสือ </button>
+    </form>
+    <form action="{{url_for('LookData')}}">
+        <button>ประวัติการยืม/คืนหนังสือ </button>
+    </form>
+    <form action="{{url_for('Add_user')}}">
+        <button>เพิ่มบัญชีผู้ดูแล</button>
+    </form>
+    <form>
+        <button><a href="/" style="text-decoration:none;color: black;">กลับหน้าหลัก</a></button>
+    </form>
+    <form action="{{url_for('logout')}}">
+        <button>ออกจากระบบ</button>
+    </form>
+</body>
+</html>

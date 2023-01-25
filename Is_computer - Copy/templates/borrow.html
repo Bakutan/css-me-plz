@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>borrow</title>
+</head>
+<body>
+    <h1>ยืมหนังสือ</h1>
+    <form action="{{url_for('Addtolist')}}">
+        <div>
+            <label for="bookname">ชื่อหนังสือ:</label>
+            <input type="text" id="bookname" name="bookname" placeholder="กรุณาพิมพ์ชื่อหนังสือ" required autofocus>
+        </div>
+        <div>
+            <label for="bookpas">รหัสหนังสือ:</label>
+            <input type="text" id="bookpas" name="bookpas" placeholder="กรุณาพิมพ์รหัสหนังสือ" required autofocus>
+        </div>
+        <div>
+            <button type="submit" id="submit-1">ยืนยัน</button>
+            <button><a href="/" style="text-decoration: none;color: black;">กลับหน้าหลัก</a></button>
+        </div>
+    </form>
+    <div>
+        <form action="{{url_for('ComfirmBorrow')}}">
+            <p>รายชื่อหนังสือที่จะยืม</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ชื่อหนังสือ</th>
+                            <th>รหัสหนังสือ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {%for index in lists%}
+                        <tr>
+                            <td>{{index.0}}</td>
+                            <td>{{index.1}}</td>
+                            <td><button><a href="/Adelete/{{index.1}}">delete</a></button></td>
+                        </tr>
+                        {%endfor%}
+                    </tbody>
+                </table>
+            <button type="submit" id="submit-2">ยืนยันการยืม</button>
+        </form>
+    </div>
+    <div>
+        <p>รายชื่อหนังสือที่มีให้ยืมได้</p>
+    </div>
+    <div>
+        <form>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ชื่อหนังสือ</th>
+                        <th>รหัสหนังสือ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for item in name%}
+                    <tr>
+                        <td>{{item.0}}</td>
+                        <td>{{item.1}}</td>
+                    </tr>
+                        
+                    {%endfor%}
+                </tbody>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
